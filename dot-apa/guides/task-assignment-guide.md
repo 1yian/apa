@@ -85,41 +85,57 @@ After logging, you **MUST** output a **Final Task Report** code block.
 Present Task Assignment Prompts as **a single markdown code block with YAML frontmatter at the top.** This ensures smooth copy-paste workflow for users transferring prompts between Manager and Implementation Agents.
 
 ## 3. Context Dependency Integration
-When consumer tasks depend on producer outputs ("Depends on: Task X.Y Output" in Implementation Plan Guidance), Manager provides context to enable successful integration.
+When consumer tasks depend on producer outputs ("Depends on: Task X.Y Output" in Implementation Plan Guidance), the Manager MUST provide comprehensive context to enable successful integration.
 
-### 3.1. Dependency Context Guidelines
-Since each task is executed by a fresh subagent, always provide comprehensive context for dependencies:
+### 3.1. Core Principle: Every Subagent Starts Fresh
+**CRITICAL:** Each task is executed by a fresh subagent with no memory of previous tasks. Therefore:
+- **ALL dependencies require comprehensive context** - there is no "light" context option
+- Assume the subagent knows nothing about what previous tasks accomplished
+- Include all information needed to integrate with or build upon dependency outputs
 
-**Context Approach:**
-- Provide specific output references and key implementation details
-- Include relevant file locations and important artifacts created
-- Detail level varies based on dependency complexity
-- Always include specific file paths for outputs that need to be used or extended
+### 3.2. Comprehensive Context Template
+For EVERY task with dependencies, include this complete context structure:
 
-**Context Example:**
 ```markdown
 ## Context from Dependencies
-This task builds on Task 2.3 API implementation:
+This task depends on: **Task X.Y - [Title]**
 
-**Key Outputs to Use:**
-- Authentication endpoints in `src/api/auth.js` (POST /api/login, GET /api/verify)
-- User validation middleware in `src/middleware/auth.js`
-- Database schema updates in `migrations/003_add_user_roles.sql`
+**Files Created/Modified by Dependency:**
+- `path/to/file1.ext` - [what this file contains/does]
+- `path/to/file2.ext` - [what this file contains/does]
 
-**Implementation Details:**
-- JWT tokens include user role and permissions in payload
-- Error handling returns standardized error objects with code/message format
-- Rate limiting applied to login attempts (implemented in middleware)
+**Key Implementation Details:**
+- [Important architectural decision made]
+- [Data structures or interfaces defined]
+- [Patterns or conventions established]
 
-**Integration Approach:**
-For this task, extend the existing role-based permissions system to handle the new admin dashboard requirements.
+**Integration Steps:**
+1. Read `path/to/dependency/output.ext` to understand [specific aspect]
+2. Use the [specific component/function/interface] from the dependency
+3. Follow the [pattern/convention] established in the dependency
+4. [Any additional integration requirements]
+
+**Expected Integration Points:**
+- Import/use: [specific exports, functions, or interfaces]
+- Extend: [specific classes or components to build upon]
+- Reference: [specific configurations or constants]
 ```
 
-### 3.2. Context Creation Guidelines for Manager Agents
-- Review producer task Memory Log for key outputs and deliverables
-- Create file reading and review instructions as needed
-- Provide comprehensive output summary and usage guidance
-- Include User clarification protocol for complex integrations
+### 3.3. Context Creation Protocol for Manager Agents
+1. **Read the dependency's Memory Log** at `apa/[branch]/memory/task-X-Y.md`
+2. **Extract ALL relevant outputs:**
+   - File paths created or modified
+   - Key functions, classes, or interfaces exported
+   - Configuration changes made
+   - Patterns or conventions established
+3. **Include explicit integration steps** that tell the subagent exactly how to use the dependency outputs
+4. **Add file reading instructions** if the subagent needs to examine dependency files in detail
+
+### 3.4. Clarification Protocol
+If dependency context is unclear or incomplete:
+1. **Re-read the dependency Memory Log** for additional details
+2. **Inspect dependency artifacts directly** if Memory Log is insufficient
+3. **Include clarification guidance** in the task prompt: "If the integration approach is unclear after reviewing the dependency files, report status as `blocked` with specific questions"
 
 ## 4. Memory Log Review
 When Implementation Agent returns, **review Memory Log per .apa/guides/memory-log-guide.md section §5**. Assess task completion status, identify blockers, and verify outputs match Implementation Plan expectations. Scan the log's YAML frontmatter:

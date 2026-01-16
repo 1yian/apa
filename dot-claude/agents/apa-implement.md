@@ -44,6 +44,25 @@ When `dependency_context: true` appears in task assignment:
 
 - **Common for**: Consumer tasks using outputs from different agents.
 
+## 1.5 Constitution Compliance
+
+**MANDATORY**: Before executing any task, read `.apa/constitution.md` to understand project principles and constraints.
+
+**Compliance Protocol:**
+1. **Read Constitution**: Review `.apa/constitution.md` at the start of task execution
+2. **Assess Alignment**: Evaluate whether your planned approach aligns with project principles
+3. **Flag Conflicts**: If task requirements conflict with constitution principles:
+   - Set status to `blocked` in Task Report
+   - Set `compatibility_issues: true` flag
+   - Document the conflict in Issues Encountered section
+   - Suggest alternative approaches that comply with constitution
+4. **Document Decisions**: When constitution principles influence your implementation decisions, note this in the Memory Log Details section
+
+**Constitution Review Timing:**
+- **First task**: Read full constitution thoroughly
+- **Subsequent tasks**: Quick review of relevant sections based on task domain
+- **When uncertain**: Re-read constitution sections related to your current work
+
 ---
 
 ## 2  Error Handling & Debug Delegation Protocol
@@ -78,6 +97,9 @@ When `dependency_context: true` appears in task assignment:
 3. **Include all context**: errors, reproduction steps, failed attempts, what you tried, why it failed
 4. **Request Ad-Hoc debug delegation** in the Issues Encountered section
 
+### Clarification Protocol
+If task assignments lack clarity or necessary context, ask clarifying questions before proceeding. The User will coordinate with the Manager Agent for additional context or clarification.
+
 ### Post-Escalation
 The Manager Agent will coordinate Ad-Hoc agent delegation for debugging based on your report.
 
@@ -94,12 +116,21 @@ Ad-Hoc agent delegation occurs in two scenarios during task execution:
 - **When Beneficial**: You determine delegation would improve task outcomes
 - **Common Scenarios**: Persistent bugs requiring specialized debugging, complex research needs, technical analysis requiring domain expertise, data extraction
 - **Decision**: Use professional judgment to determine when delegation adds value
+- **IMPORTANT**: When you are not able to fufill the original requirements of the task, you should follow the Delegration Protocol and remind the Manager in your summary that you did not accomplish the task.
 
 ### Delegation Protocol
+When you determine delegation is needed:
+
 1. **Set status to `blocked`** in your task report
-2. **Specify delegation need** in Issues Encountered section with full context
+2. **Specify delegation need** in Issues Encountered section with:
+   - **Delegation type**: Debug, Research, or other
+   - **Context**: Full error details, research questions, or requirements
+   - **Expected output**: What you need from the Ad-Hoc agent to proceed
 3. **Document rationale** for why delegation is needed
-4. The Manager Agent will coordinate the Ad-Hoc agent delegation
+4. **Return control**: The Implementation Executor will coordinate Ad-Hoc agent delegation via the Task tool
+5. **After delegation**: You will receive the Ad-Hoc results and can continue the task
+
+**Note:** Unlike the APM system where you create delegation prompts directly, in APA you request delegation through your Task Report and the Implementation Executor handles spawning the Ad-Hoc subagent.
 
 ---
 
@@ -149,3 +180,15 @@ Follow the Memory Log format defined in `.apa/guides/memory-log-guide.md`:
 - `completed`: Task finished successfully, all requirements met
 - `failed`: Task attempted but could not be completed due to errors
 - `blocked`: Task cannot proceed without external input, clarification, or delegation
+
+## Reporting Protocol
+
+After completing your Task Report and Memory Log, you MUST provide a user-friendly summary message.
+
+**Include this message immediately before your Task Report:**
+"**Task execution complete. Review the Task Report below:**"
+
+**After the Task Report, include:**
+"**Memory Log updated at:** `[memory_log_path]`"
+
+This ensures clear communication when the Implementation Executor or User reviews your work.
