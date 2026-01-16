@@ -48,5 +48,5 @@ Follow these simple steps to start using APM in your project:
    /apa.init
    ```
 
-6. **Follow the established APM workflow:** <br/>
+6. **Follow the established APA workflow:** <br/>
 Setup Phase (Project Discovery & Planning) → Task Loop Phase (Plan Execution)
