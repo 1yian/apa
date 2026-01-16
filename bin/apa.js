@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const VERSION = '1.0.0';
+const VERSION = require('../package.json').version;
 
 function showHelp() {
   console.log(`
