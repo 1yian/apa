@@ -2,7 +2,7 @@
 
 *Manage complex projects with a team of AI assistants, smoothly and efficiently.*
 
-## What is APM?
+## What is APA?
 
 **Always Plan Ahead (APA)** is fork of [APM](https://github.com/sdi2200262/agentic-project-management) that brings real-world project management principles into your AI-assisted workflows. 
 
