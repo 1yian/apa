@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/1yian/apa/compare/v1.1.0...v1.2.0) (2026-01-20)
+
+
+### Features
+
+* add autonomous tactical reassessment capability ([e42a602](https://github.com/1yian/apa/commit/e42a602814ffd84ecb930e20a034fdb99174b09d))
+* implement adaptive orchestration improvements ([698a54e](https://github.com/1yian/apa/commit/698a54e666069cb91325c51197101c1fc7e2fdcc))
+
 # [1.1.0](https://github.com/1yian/apa/compare/v1.0.3...v1.1.0) (2026-01-19)
 
 
