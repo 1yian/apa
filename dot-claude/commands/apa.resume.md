@@ -17,16 +17,12 @@ This command resumes an existing APA session by reconstructing context from save
 Execute the following verification:
 
 1. Run `git branch --show-current` to get the current branch name
-2. Verify the branch starts with `feat/`
-3. If verification fails, display this error and **STOP**:
-   ```
-   APA requires a feat/* branch. Please checkout your feature branch:
-   git checkout feat/your-feature-name
-   ```
-4. If verification passes, extract the branch name by stripping the `feat/` prefix
-   - Example: `feat/user-auth` → branch name is `user-auth`
+2. Store the branch name as-is for use in subsequent steps
+   - Example: `user-auth` → branch name is `user-auth`
+   - Example: `feat/user-auth` → branch name is `feat/user-auth`
+   - Example: `fix/bug-123` → branch name is `fix/bug-123`
 
-Store the extracted branch name for use in subsequent steps.
+Note: APA works with any branch name. No prefix requirement.
 
 ---
 
@@ -38,7 +34,7 @@ Verify the APA session workspace exists:
 2. Check if `apa/[branch]/metadata.json` exists
 3. If either check fails, display this error and **STOP**:
    ```
-   No APA session found for branch 'feat/[branch]'.
+   No APA session found for branch '[branch]'.
 
    To start a new session, run: /apa.init
    To list existing sessions, check the apa/ directory.

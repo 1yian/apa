@@ -17,16 +17,12 @@ This command initializes an APA (Always Plan Ahead) session for feature branch d
 Execute the following verification:
 
 1. Run `git branch --show-current` to get the current branch name
-2. Verify the branch starts with `feat/`
-3. If verification fails, display this error and **STOP**:
-   ```
-   APA requires a feat/* branch. Please run: git checkout -b feat/your-feature-name
-   ```
-4. If verification passes, extract the branch name by stripping the `feat/` prefix
-   - Example: `feat/user-auth` → branch name is `user-auth`
+2. Store the branch name as-is for use in subsequent steps
+   - Example: `user-auth` → branch name is `user-auth`
+   - Example: `feat/user-auth` → branch name is `feat/user-auth`
+   - Example: `fix/bug-123` → branch name is `fix/bug-123`
 
-Otherwise, offer to help set up the branch to the user.
-Store the extracted branch name for use in subsequent steps.
+Note: APA works with any branch name. No prefix requirement.
 
 ---
 
@@ -69,7 +65,7 @@ Create `metadata.json` in `apa/[branch]/` with the following schema:
 ```
 
 Replace:
-- `[branch]` with the extracted branch name
+- `[branch]` with the branch name from Step 1
 - `[ISO timestamp]` with current ISO 8601 timestamp (e.g., `2024-01-15T10:30:00Z`)
 
 ---
@@ -149,7 +145,7 @@ Display initialization summary:
 ```
 APA Session Initialized Successfully
 ====================================
-Branch: feat/[branch]
+Branch: [branch]
 Workspace: apa/[branch]/
 Constitution: [status - created/existing/updated]
 Status: Ready for /apa.plan
