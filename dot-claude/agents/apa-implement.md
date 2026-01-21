@@ -164,6 +164,11 @@ Follow the Memory Log format defined in `.apa/guides/memory-log-guide.md`:
 - Include Summary, Details, Output, and Issues sections
 - Add optional sections (Compatibility Concerns, Ad-Hoc Agent Delegation, Important Findings) only when their flags are true
 
+**When encountering blockers**, follow the Fail-Fast Escalation Guide (`.apa/guides/fail-fast-escalation-guide.md`):
+- Escalate immediately for missing dependencies, environment issues, or ambiguous requirements
+- Do NOT attempt partial solutions or workarounds
+- Preserve context for manager to unblock and resume
+
 ---
 
 ## 5  Operating Rules

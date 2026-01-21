@@ -174,9 +174,14 @@ The task agent returns a structured Task Report:
    - Determine if conflict is genuine or if agent is misinterpreting
    - If genuine conflict: Escalate to user with full context (see Escalation Protocol)
    - If misinterpretation: Retry with clarification
-3. **Check for technical blocker**:
-   - If agent claims technical impossibility without exhausting attempts, reject and retry
-   - If agent has made reasonable attempts, apply Strategic Synthesis protocol
+3. **Check for technical blocker** (see Fail-Fast Escalation Guide `.apa/guides/fail-fast-escalation-guide.md`):
+   - **Validate blocker legitimacy**: Verify blocker is genuine (missing deps, environment issues, ambiguous requirements)
+   - **Choose response**:
+     - **Direct Unblocking**: If you can resolve (install deps, clarify requirements, set up environment), do so and resume agent
+     - **Resume Same Agent**: After unblocking, resume agent with updated context and unblocking details
+     - **Reassign Task**: If blocker reveals wrong agent assignment or agent cannot proceed even after unblocking
+     - **Update Plan**: If blocker reveals missing phase, incorrect dependencies, or environmental prerequisites
+   - **Preserve Context**: Ensure agent's work and decision trail are preserved for efficient resume
 4. **Check ad_hoc_delegation flag**:
    - If true: Coordinate delegation as needed
    - Document delegation results
@@ -226,6 +231,8 @@ There are two levels of reassessment based on the scope of changes needed:
 - Adjusting task dependencies based on actual outputs
 - Adding small tasks within the current phase scope
 - Reordering tasks within a phase
+- Discoveries from brownfield exploration that refine understanding
+- Better approaches identified during implementation
 
 **Process**:
 1. Make the adjustment directly to `apa/[branch]/implementation-plan.md`
@@ -234,6 +241,8 @@ There are two levels of reassessment based on the scope of changes needed:
 4. Continue execution with the updated plan
 
 **Example**: "Task 2.3 revealed that the data is in JSON format, not CSV. Updating Task 2.4's instructions to parse JSON instead."
+
+**Philosophy**: Plans are living documents that evolve during implementation. See `.apa/guides/living-plan-philosophy.md` for detailed guidance on continuous plan refinement, discovery-driven planning, and bidirectional feedback.
 
 #### Level 2: Strategic Reassessment (User-Invoked)
 
