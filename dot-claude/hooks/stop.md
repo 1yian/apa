@@ -12,9 +12,7 @@ hooks:
 
             First, get the current git branch: `git branch --show-current`
 
-            Extract branch name:
-            - If branch starts with `feat/`, strip the prefix (e.g., `feat/user-auth` -> `user-auth`)
-            - Otherwise use the full branch name
+            Store the branch name as-is (e.g., `user-auth`, `feat/user-auth`, `fix/bug-123`)
 
             Check if `apa/[branch]/` directory exists.
 

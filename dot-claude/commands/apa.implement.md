@@ -28,7 +28,7 @@ On invocation, perform these steps immediately without user interaction:
    ```bash
    git branch --show-current
    ```
-   Store as `feat/[branch]` for all path references.
+   Store the branch name as-is for all path references (e.g., `user-auth`, `feat/user-auth`, `fix/bug-123`).
 
 2. **Read Implementation Plan:**
    Read `apa/[branch]/implementation-plan.md` to understand all tasks and their dependencies.

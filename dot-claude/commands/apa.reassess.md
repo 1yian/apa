@@ -18,7 +18,7 @@ Execute immediately on invocation:
 git branch --show-current
 ```
 
-Store as `feat/[branch]` for all path references.
+Store the branch name as-is for all path references (e.g., `user-auth`, `feat/user-auth`, `fix/bug-123`).
 
 ---
 
@@ -149,6 +149,8 @@ Update `apa/[branch]/metadata.json`:
 }
 ```
 
+Note: `[branch]` should be the actual branch name (e.g., `user-auth`, `feat/user-auth`, `fix/bug-123`).
+
 ---
 
 ## Step 7: Completion Confirmation
@@ -158,7 +160,7 @@ Display modification summary:
 ```
 Plan Reassessment Complete
 ==========================
-Branch: feat/[branch]
+Branch: [branch]
 Changes applied: [summary of modifications]
 Immutable tasks preserved: [count]
 Modified tasks: [list task IDs that were changed]

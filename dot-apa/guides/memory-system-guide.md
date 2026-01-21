@@ -6,7 +6,7 @@ Memory duties are assigned to the *Manager Agent* - who maintains the system. De
 ## 1  Memory System Overview
 The Dynamic-MD Memory System organizes memory with the following structure:
 
-Note: the git branch is `feat/[branch]`
+Note: the git branch is `[branch]` (use actual branch name, e.g., `user-auth`, `feat/user-auth`, `fix/bug-123`)
 
 - **Storage layout:** Folder `apa/memory/[branch]` + `memory-root.md` + sub-folders `phase-XX-slug/` in the `apa/` directory
 - **Log format:** One `task-XX-slug.md` Memory Log per task

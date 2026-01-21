@@ -18,13 +18,9 @@ Execute immediately on invocation:
 git branch --show-current
 ```
 
-Store as `[full_branch]`.
+Store the branch name as-is as `[branch]` for all path references.
 
-**Branch name extraction:**
-- If branch starts with `feat/`, strip the prefix (e.g., `feat/user-auth` → `user-auth`)
-- If branch does not start with `feat/`, use the full branch name
-
-Store the extracted name as `[branch]` for all path references.
+Note: APA works with any branch name (e.g., `user-auth`, `feat/user-auth`, `fix/bug-123`).
 
 ---
 

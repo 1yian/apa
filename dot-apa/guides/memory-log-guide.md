@@ -9,7 +9,7 @@ Summary of the Dynamic-MD Memory System variant, its storage layout and log form
 - Storage: `apa/memory/[branch]` folder with subfolders `phase-XX-slug/`
 - Format: One `task-XX-slug.md` file per task (Markdown)
 
-Note: the git branch is `feat/[branch]`
+Note: the git branch is `[branch]` (use actual branch name, e.g., `user-auth`, `feat/user-auth`, `fix/bug-123`)
 
 Memory Logs are populated by Implementation Agents after each task execution or when blockers occur. Manager Agents review logs to track progress and plan next steps.
 
