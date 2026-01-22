@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/1yian/apa/compare/v1.3.0...v1.3.1) (2026-01-22)
+
+
+### Bug Fixes
+
+* link missing guides and enforce test execution verification ([#4](https://github.com/1yian/apa/issues/4)) ([b3f27fe](https://github.com/1yian/apa/commit/b3f27fec4f80e7b5ab312853632025a88e5eb4a9))
+
 # [1.3.0](https://github.com/1yian/apa/compare/v1.2.0...v1.3.0) (2026-01-21)
 
 
